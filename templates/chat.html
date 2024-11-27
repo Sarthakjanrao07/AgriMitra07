@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("arogya.jpg");
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+        .chat-container {
+            width: 50%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .messages {
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-color: #f1f8e9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .user-message, .bot-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #67efb0;
+            text-align: right;
+        }
+        .bot-message {
+            background-color: #f1f8e9;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('chat') }}">Reset Chat</a>
+    </nav>
+
+    <!-- Chatbot Interface -->
+    <div class="chat-container">
+
+        <h1>"Hey ! तुमच्या आरोग्याचे समाधान एका क्लिकवर"</h1>
+        <div class="messages" id="messages">
+        </div>
+        <input type="text" id="userInput" placeholder="Ask me anything..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        // Function to send the message to the Flask backend
+        function sendMessage() {
+            const userMessage = document.getElementById("userInput").value;
+            if (userMessage.trim() === "") return;
+
+            // Display the user's message in the chat window
+            appendMessage("user", userMessage);
+
+            // Send the message to the backend via AJAX
+            fetch("{{ url_for('chat') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response from server:", data); // Log the response
+                if (data.error) {
+                    appendMessage("bot", "Sorry, I couldn't process your request.");
+                } else {
+                    appendMessage("bot", data.response);
+                }
+                // Clear the input field after sending
+                document.getElementById("userInput").value = "";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                appendMessage("bot", "An error occurred. Please try again.");
+            });
+        }
+
+        // Function to append messages to the chat window
+        function appendMessage(sender, text) {
+            const messagesContainer = document.getElementById("messages");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add(sender + "-message");
+            messageElement.textContent = text;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+        }
+    </script>
+</body>
+</html>
