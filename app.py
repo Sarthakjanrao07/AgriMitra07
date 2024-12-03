@@ -129,50 +129,40 @@ def home():
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    # Get the incoming data from the frontend
+    # Get the user's message from the request
     data = request.get_json()
-    user_message = data.get('message')
+    user_message = data.get('message', '').strip()
 
-    # Check if the message is not empty
     if not user_message:
-        return jsonify({"error": "Empty message"}), 400
+        return jsonify({"response": "Please provide a valid message."}), 400
 
-    # Generate the response based on the user's message
+    # Generate a response from your chatbot logic
     bot_response = generate_bot_response(user_message)
 
     return jsonify({"response": bot_response})
 
+
 def generate_bot_response(user_message):
-    # Example responses
-    if "health" in user_message.lower():
-        return "Farmers often face health risks from pesticides, heat stress, and musculoskeletal issues. Stay safe!"
-    elif "pesticide" in user_message.lower():
-        return "Pesticide exposure can lead to headaches, nausea, and skin problems. Always wear protective gear!"
-    elif "protect" in user_message.lower():
-        return " Farmers should wear protective clothing like gloves, masks, and goggles when applying pesticides. It's also important to work in well-ventilated areas and follow safety instructions on pesticide labels."
-    elif "problem" in user_message.lower():
-        return " Farmers often experience back pain, joint problems, and repetitive strain injuries due to heavy lifting, bending, and prolonged periods of standing or sitting. Regular exercise, proper lifting techniques, and ergonomic equipment can help prevent these issues."
-    elif "heat" in user_message.lower():
-        return "Symptoms include dizziness, nausea, rapid heartbeat, confusion, and excessive sweating. If a farmer experiences these symptoms, they should seek medical attention immediately and cool down in a shaded area."
-    elif "yellow" in user_message.lower():
-        return "Yellowing leaves may indicate a nutrient deficiency, particularly nitrogen or iron. It can also be a sign of overwatering, poor drainage, or root damage.Solution:Nitrogen deficiency: Apply a nitrogen-rich fertilizer like urea or compost.Iron deficiency: Consider using iron chelate or other iron supplements.Ensure proper drainage and avoid overwatering."
-    elif "weeds" in user_message.lower():
-        return " Weeds compete with crops for nutrients, light, and water, and can significantly reduce yields.Solution:Manual removal: Hand-pull weeds, especially when they’re young.Mulching: Apply mulch to suppress weed growth and retain moisture.Herbicides: Use targeted herbicides if the weed problem is severe. Always follow safety guidelines for chemical use.Cover crops: Plant cover crops like clover or rye to crowd out weeds"
+    # Example of integrating generative AI or predefined responses
+    if "hello" in user_message.lower():
+        return "Hi there! How can I assist you today?"
+    elif "help" in user_message.lower():
+        return "I'm here to help. Please ask your question."
     else:
-        return "I'm here to help with farming health-related questions. Please ask another question."
+        # Example fallback response
+        return "I'm not sure I understand. Can you please clarify?"
 
 
-@ app.route('/chat')
+@app.route('/chat')
 def chatbot():
-    title = 'Harvestify - Crop Recommendation'
-    return render_template('chat.html', title=title)
+    return render_template('chat.html')
 
 # render fertilizer recommendation form page
 
 
 @ app.route('/fertilizer')
 def fertilizer_recommendation():
-    title = 'Harvestify - Fertilizer Suggestion'
+    title = 'AgriMitra - Fertilizer Suggestion'
 
     return render_template('fertilizer.html', title=title)
 
@@ -180,7 +170,7 @@ def fertilizer_recommendation():
 
 @ app.route('/fertilizer-predict', methods=['POST'])
 def fert_recommend():
-    title = 'Harvestify - Fertilizer Suggestion'
+    title = 'AgriMitra - Fertilizer Suggestion'
 
     crop_name = str(request.form['cropname'])
     N = int(request.form['nitrogen'])
@@ -223,7 +213,7 @@ def fert_recommend():
 
 @app.route('/disease-predict', methods=['GET', 'POST'])
 def disease_prediction():
-    title = 'Harvestify - Disease Detection'
+    title = 'AgriMitra - Disease Detection'
 
     if request.method == 'POST':
         if 'file' not in request.files:
