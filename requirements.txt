@@ -12,8 +12,10 @@ pytz==2024.1
 Werkzeug==3.0.4
 aiohttp==3.11.9
 beautifulsoup4==4.12.3
-flask-cors==3.1.1
+flask-cors==3.0.10  # Updated to the correct version
+flask_sqlalchemy==3.0.0
 Flask-SQLAlchemy==3.0.0
+flask_login==0.6.2  # Add any other Flask extension you need
 gunicorn==23.0.0
 idna==3.8
 ipykernel==6.29.5
@@ -23,7 +25,4 @@ Jinja2==3.1.4
 joblib==1.4.2
 pillow==10.4.0
 pyyaml==6.0.2
-requests==2.32.3
-scipy==1.14.1
-setuptools==74.1.2
-Werkzeug==3.0.4
+psycopg2==2.9.3  # If you are using PostgreSQL
