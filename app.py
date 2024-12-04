@@ -1,16 +1,3 @@
-import warnings
-warnings.filterwarnings("ignore", category=FutureWarning)
-
-import os
-
-# Base directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Paths
-disease_model_path = os.path.join(BASE_DIR, 'models', 'plant_disease_model.pth')
-fertilizer_csv_path = os.path.join(BASE_DIR, 'Data', 'fertilizer.csv')
-
-
 from flask import Flask, render_template, request, redirect, jsonify
 from markupsafe import Markup
 import numpy as np
@@ -67,18 +54,10 @@ disease_classes = ['Apple___Apple_scab',
                    'Tomato___Tomato_mosaic_virus',
                    'Tomato___healthy']
 
-# disease_model_path = 'AgriMitra07\\models\\plant_disease_model.pth'
-# disease_model = ResNet9(3, len(disease_classes))
-# disease_model.load_state_dict(torch.load(
-#     disease_model_path, map_location=torch.device('cpu')))
-# disease_model.eval()
-
-
-# Load the model
+disease_model_path = 'AgriMitra07\\models\\plant_disease_model.pth'
 disease_model = ResNet9(3, len(disease_classes))
-disease_model.load_state_dict(
-    torch.load(disease_model_path, map_location=torch.device('cpu'))
-)
+disease_model.load_state_dict(torch.load(
+    disease_model_path, map_location=torch.device('cpu')))
 disease_model.eval()
 
 # Loading crop recommendation model
