@@ -56,7 +56,7 @@ disease_classes = ['Apple___Apple_scab',
                    'Tomato___Tomato_mosaic_virus',
                    'Tomato___healthy']
 
-disease_model_path = r'models\plant_disease_model.pth'
+disease_model_path = 'models/plant_disease_model.pth'
 disease_model = ResNet9(3, len(disease_classes))
 disease_model.load_state_dict(torch.load(
     disease_model_path, map_location=torch.device('cpu'),weights_only=True))
@@ -161,7 +161,7 @@ def chatbot():
 # render fertilizer recommendation form page
 
 
-@ app.route('/fertilizer')
+@app.route('/fertilizer')
 def fertilizer_recommendation():
     title = 'AgriMitra - Fertilizer Suggestion'
 
@@ -169,7 +169,7 @@ def fertilizer_recommendation():
 
 # ===============================================================================================
 
-@ app.route('/fertilizer-predict', methods=['POST'])
+@app.route('/fertilizer-predict', methods=['POST'])
 def fert_recommend():
     title = 'AgriMitra - Fertilizer Suggestion'
 
@@ -179,7 +179,7 @@ def fert_recommend():
     K = int(request.form['pottasium'])
     # ph = float(request.form['ph'])
 
-    df = pd.read_csv(r'Data\fertilizer.csv')
+    df = pd.read_csv('Data/fertilizer.csv')
 
     nr = df[df['Crop'] == crop_name]['N'].iloc[0]
     pr = df[df['Crop'] == crop_name]['P'].iloc[0]
