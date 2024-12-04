@@ -1,4 +1,12 @@
-# Importing essential libraries and modules
+import os
+
+# Base directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Paths
+disease_model_path = os.path.join(BASE_DIR, 'models', 'plant_disease_model.pth')
+fertilizer_csv_path = os.path.join(BASE_DIR, 'Data', 'fertilizer.csv')
+
 
 from flask import Flask, render_template, request, redirect, jsonify
 from markupsafe import Markup
@@ -62,13 +70,10 @@ disease_classes = ['Apple___Apple_scab',
 #     disease_model_path, map_location=torch.device('cpu')))
 # disease_model.eval()
 
-disease_model_path = 'AgriMitra07\\models\\plant_disease_model.pth'
+
+# Load the model
 disease_model = ResNet9(3, len(disease_classes))
-
-# Load model weights securely
-disease_model.load_state_dict(torch.load(
-    disease_model_path, map_location=torch.device('cpu'), weights_only=True))
-
+disease_model.load_state_dict(torch.load(disease_model_path, map_location=torch.device('cpu'), weights_only=True))
 disease_model.eval()
 
 # Loading crop recommendation model
@@ -187,7 +192,7 @@ def fert_recommend():
     K = int(request.form['pottasium'])
     # ph = float(request.form['ph'])
 
-    df = pd.read_csv(r'AgriMitra07\Data\fertilizer.csv')
+    df = pd.read_csv(fertilizer_csv_path)
 
     nr = df[df['Crop'] == crop_name]['N'].iloc[0]
     pr = df[df['Crop'] == crop_name]['P'].iloc[0]
