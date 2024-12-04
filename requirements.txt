@@ -1,6 +1,6 @@
 Flask==3.0.3
 gunicorn==23.0.0
-numpy==2.1.0
+numpy==1.24.0  # Correct version
 pandas==2.2.2
 requests==2.32.3
 scipy==1.14.1
@@ -10,13 +10,9 @@ pyparsing==3.1.4
 python-dateutil==2.9.0
 pytz==2024.1
 Werkzeug==3.0.4
-aiohttp==3.11.9
-beautifulsoup4==4.12.3
-flask-cors==3.0.10  # Updated to the correct version
-flask_sqlalchemy==3.0.0
-Flask-SQLAlchemy==3.0.0
-flask_login==0.6.2  # Add any other Flask extension you need
-gunicorn==23.0.0
+flask-cors==3.0.10
+flask_sqlalchemy==3.0.0  # Correct version of Flask-SQLAlchemy
+flask_login==0.6.2
 idna==3.8
 ipykernel==6.29.5
 ipython==8.27.0
@@ -25,6 +21,35 @@ Jinja2==3.1.4
 joblib==1.4.2
 pillow==10.4.0
 pyyaml==6.0.2
-psycopg2==2.9.3  # If you are using PostgreSQL
+psycopg2==2.9.3  # If using PostgreSQL
 torch==2.4.1
 torchvision==0.19.1
+
+
+
+# Flask==3.0.3
+# gunicorn==23.0.0
+# numpy==1.24.0  # Correct version
+# pandas==2.2.2
+# requests==2.32.3
+# scipy==1.14.1
+# seaborn==0.13.2
+# matplotlib==3.9.2
+# pyparsing==3.1.4
+# python-dateutil==2.9.0
+# pytz==2024.1
+# Werkzeug==3.0.4
+# flask-cors==3.0.10
+# flask_sqlalchemy==3.0.0  # Correct version of Flask-SQLAlchemy
+# flask_login==0.6.2
+# idna==3.8
+# ipykernel==6.29.5
+# ipython==8.27.0
+# itsdangerous==2.2.0
+# Jinja2==3.1.4
+# joblib==1.4.2
+# pillow==10.4.0
+# pyyaml==6.0.2
+# psycopg2==2.9.3  # If using PostgreSQL
+# torch==2.4.1
+# torchvision==0.19.1
