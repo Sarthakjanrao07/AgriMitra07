@@ -1,5 +1,4 @@
 # Importing essential libraries and modules
-
 from flask import Flask, render_template, request, redirect, jsonify
 from markupsafe import Markup
 import numpy as np
