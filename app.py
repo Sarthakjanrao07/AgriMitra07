@@ -70,7 +70,7 @@ try:
     disease_model.load_state_dict(torch.load(disease_model_path, map_location=torch.device('cpu'), weights_only=True))
     disease_model.eval()
 except Exception as e:
-    print(f"Error loading model Will Fixing it Soon...Stay tuned\n: {e}")
+    print(f"Error loading model Will Fixing it Soon...Stay tuned: {e}")
 
 
 # Loading crop recommendation model
@@ -180,7 +180,7 @@ def fertilizer_recommendation():
 
 # ===============================================================================================
 
-@ app.route('/fertilizer-predict', methods=['POST'])
+@app.route('/fertilizer-predict', methods=['POST'])
 def fert_recommend():
     title = 'AgriMitra - Fertilizer Suggestion'
 
