@@ -55,11 +55,22 @@ disease_classes = ['Apple___Apple_scab',
                    'Tomato___Tomato_mosaic_virus',
                    'Tomato___healthy']
 
+#  disease_model_path = 'models/plant_disease_model.pth'
+# disease_model = ResNet9(3, len(disease_classes))
+# disease_model.load_state_dict(torch.load(
+#     disease_model_path, map_location=torch.device('cpu'), weights_only=True))
+# disease_model.eval()
+
+# Loading plant disease classification model
 disease_model_path = 'models/plant_disease_model.pth'
 disease_model = ResNet9(3, len(disease_classes))
-disease_model.load_state_dict(torch.load(
-    disease_model_path, map_location=torch.device('cpu'), weights_only=True))
-disease_model.eval()
+
+# Load the model with weights_only=True
+try:
+    disease_model.load_state_dict(torch.load(disease_model_path, map_location=torch.device('cpu'), weights_only=True))
+    disease_model.eval()
+except Exception as e:
+    print(f"Error loading model Will Fixing it Soon...Stay tuned\n: {e}")
 
 
 # Loading crop recommendation model
