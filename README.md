@@ -41,28 +41,32 @@ For the last application, that is the plant disease prediction application, the 
 
 ---
 
-## **Technologies Used**  
-- **Frontend:** HTML, CSS, Bootstrap  
-- **Backend:** Python, Flask  
-- **AI/ML:**  
-  - Machine learning models for plant disease detection.  
-  - AI-driven chatbot with NLP capabilities.  
+## Built with 🛠️
+
+- **Frontend**: HTML, CSS, Bootstrap
+- **Backend**: Python, Flask
+- **Libraries**: TensorFlow, Keras, OpenCV, Scikit-learn, Numpy, pandas, pytorch and other essentials
 
 ---
 
-## **How It Works**  
+## How to Use 💻
 
-### Fertilizer Recommendation  
-1. Users input soil and crop details after testing soil from a Soil Test Lab.  
-2. The app uses machine learning models to analyze the data and recommend the optimal fertilizer.  
+### Crop Recommendation System
+- Enter the corresponding nutrient values of your soil, along with your state and city.
+- The N-P-K (Nitrogen-Phosphorus-Potassium) values should be entered as a ratio between them. For more information on this, refer to [this website](insert-your-link-here).
+- Note: When entering the city name, ensure it's a commonly recognized city. Remote cities or towns might not be available in the Weather API used to fetch humidity and temperature data.
 
-### Plant Disease Detection  
-1. Users upload images of affected plants.  
-2. The app processes the image using trained ML models and identifies the disease, offering actionable insights.  
+### Fertilizer Suggestion System
+- Enter the nutrient contents of your soil and the crop you want to grow.
+- The algorithm will analyze the data and inform you about which nutrients are in excess or lacking in your soil.
+- Based on this, the system will provide suggestions for the best fertilizers to purchase.
 
-### Chatbot Interaction  
-1. Farmers ask questions or seek advice through the chatbot.  
-2. The AI-powered chatbot, **Arogya**, provides accurate and timely responses.  
+### Disease Detection System
+- Upload an image of the leaf of your plant.
+- The algorithm will identify the crop type and assess whether it's healthy or diseased.
+- If diseased, it will inform you of the cause of the disease and suggest ways to prevent or cure it.
+- **Note**: Currently, the disease detection system supports only the following crops: [list of supported crops here].
+ 
 
 ---
 
