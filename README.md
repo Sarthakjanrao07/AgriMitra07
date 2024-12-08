@@ -2,20 +2,23 @@
  
 Agrimitra is a smart farming assistant app designed to support farmers in optimizing agricultural practices through technology. The app leverages AI and machine learning to provide fertilizer recommendations, plant disease detection, and an AI-powered chatbot for seamless interaction.
 
-### Features
-## Fertilizer Recommendation
+## Features
+### Fertilizer Recommendation
 
 Provides precise fertilizer types and quantities based on soil data and crop needs.
 Reduces overuse of fertilizers, preserving soil health and cutting costs.
-Plant Disease Detection
+
+### Plant Disease Detection
 
 Identifies plant diseases using image recognition and machine learning.
 Suggests remedies and preventive measures for healthier crops.
-AI-Powered Chatbot
+
+### AI-Powered Chatbot
 
 Offers instant responses to farmer queries on crop management, fertilizers, and more.
 Enhances user experience with natural language processing (NLP).
-User-Friendly Design
+
+### User-Friendly Design
 
 Built with HTML, CSS, and Flask to ensure a seamless and responsive interface.
 Accessible on mobile and desktop devices.
@@ -26,18 +29,22 @@ AI/ML:
 Machine learning models for plant disease detection.
 AI-driven chatbot with NLP capabilities.
 
-How It Works
+## How It Works
+
 Fertilizer Recommendation
 
-Users input soil and crop details.
+Users input soil and crop details. As after he has tested Soil from Soil Test Lab.
 The app uses machine learning models to analyze the data and recommend the optimal fertilizer.
-Plant Disease Detection
-
+Plant Disease Detection using ML prediction based on dataset on which model is Trained
 Users upload images of affected plants.
 The app processes the image using trained models and identifies the disease, offering actionable insights.
-Chatbot Interaction
+
+#### Chatbot Interaction
 
 Farmers ask questions or seek advice through the chatbot.
+Chat named as 
+##### Arogya
+
 The AI-powered chatbot provides accurate and timely responses.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
