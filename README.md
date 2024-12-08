@@ -80,3 +80,11 @@ For the last application, that is the plant disease prediction application, the 
 ---  
 
 🌟 **Contribute to smarter, sustainable agriculture with AgriMitra!**  
+
+## Contact 📞
+
+If you have any doubts or want to contribute, feel free to email me or reach out to me on LinkedIn:
+
+- **Email**: [sarthakjanrav@gmail.com](mailto:sarthakjanrav@gmail.com)
+- **LinkedIn**: [Sarthak Janrao](https://www.linkedin.com/in/sarthakjanrao/)
+
