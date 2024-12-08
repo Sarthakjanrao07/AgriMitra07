@@ -2,7 +2,7 @@
  
 Agrimitra is a smart farming assistant app designed to support farmers in optimizing agricultural practices through technology. The app leverages AI and machine learning to provide fertilizer recommendations, plant disease detection, and an AI-powered chatbot for seamless interaction.
 
-###Features
+### Features
 Fertilizer Recommendation
 
 Provides precise fertilizer types and quantities based on soil data and crop needs.
