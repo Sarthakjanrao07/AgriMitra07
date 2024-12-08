@@ -17,7 +17,7 @@ Agrimitra is a smart farming assistant app designed to support farmers in optimi
 ### 🤖 AI-Powered Chatbot  
 - Offers instant responses to farmer queries on crop management, fertilizers, and more.  
 - Enhances user experience with natural language processing (NLP).  
-- Chatbot is named **Digital Doctor - Arogya**.  
+- Chatbot is named **Arogya**.  
 
 ### 🎨 User-Friendly Design  
 - Built with HTML, CSS, and Flask to ensure a seamless and responsive interface.  
