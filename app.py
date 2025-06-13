@@ -66,11 +66,18 @@ disease_model_path = 'models/plant_disease_model.pth'
 disease_model = ResNet9(3, len(disease_classes))
 
 # Load the model with weights_only=True
+# try:
+#     disease_model.load_state_dict(torch.load(disease_model_path, map_location=torch.device('cpu'), weights_only=True))
+#     disease_model.eval()
+# except Exception as e:
+#     print(f"Error loading model Will Fixing it Soon...Stay tuned: {e}")
 try:
-    disease_model.load_state_dict(torch.load(disease_model_path, map_location=torch.device('cpu'), weights_only=True))
+    disease_model.load_state_dict(torch.load(
+        disease_model_path, map_location=torch.device('cpu')))
     disease_model.eval()
 except Exception as e:
-    print(f"Error loading model Will Fixing it Soon...Stay tuned: {e}")
+    print(f"Error loading model: {e}")
+    disease_model = None  # Prevent further errors
 
 
 # Loading crop recommendation model
