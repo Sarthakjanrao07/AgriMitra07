@@ -1,4 +1,5 @@
-# 🌾 **AgriMitra**   Deploy link: https://agrimitra07.onrender.com
+# 🌾 **AgriMitra**   
+Deploy link: https://agrimitra07.onrender.com
 
 Agrimitra is a smart farming assistant app designed to support farmers in optimizing agricultural practices through technology. The app leverages AI and machine learning to provide fertilizer recommendations, plant disease detection, and an AI-powered chatbot for seamless interaction.  
 
@@ -87,5 +88,6 @@ If you have any doubts or want to contribute, feel free to email me or reach out
 
 - **Email**: [sarthakjanrav@gmail.com](mailto:sarthakjanrav@gmail.com)
 - **LinkedIn**: [Sarthak Janrao](https://www.linkedin.com/in/sarthak-janrao/)
+
 
 
